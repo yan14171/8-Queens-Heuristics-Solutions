@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Queens.Game;
+using Queens.Interfaces;
 
-namespace laba1
+namespace Queens.Algorithms
 {
     class AStar : IAlgorithm
     {
@@ -45,7 +47,7 @@ namespace laba1
                     if (closedSet.Contains(child))
                         continue;
 
-                    if(!openSet.Contains(child))
+                    if (!openSet.Contains(child))
                     {
                         child.SetParent(currentNode);
                         openSet.Add(child);
@@ -56,7 +58,7 @@ namespace laba1
             Console.WriteLine($"Seen ${allStates} at all. Saved in memory {closedSet.Count} sets");
             return false;
         }
-        
+
 
         int G(StateNode state)
         {
